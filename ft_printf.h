@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:19:59 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/10 18:39:53 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:02:41 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ void	ft_printf_i(int i);
 void	ft_printf_u(unsigned int u);
 void	ft_printf_x(int x);
 void	ft_printf_X(int X);
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list;
-int			ft_isalpha(int c);
-int			ft_isdigit(int c);
-int			ft_isalnum(int c);
-int			ft_isascii(int c);
-int			ft_isprint(int c);
-size_t		ft_strlen(const char *s);
+//typedef struct s_list
+//{
+//	void			*content;
+//	struct s_list	*next;
+//}	t_list;
+//int			ft_isalpha(int c);
+//int			ft_isdigit(int c);
+//int			ft_isalnum(int c);
+//int			ft_isascii(int c);
+//int			ft_isprint(int c);
+/* size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *scr, size_t size);
 int			ft_toupper(int c);
@@ -54,13 +54,15 @@ void		*ft_memcpy(void *dst, const void *src, size_t n);
 void		*ft_memmove(void *dst, const void *src, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
-void		*ft_calloc(size_t count, size_t size);
+void		*ft_calloc(size_t count, size_t size);*/
 char		*ft_strdup(const char *src);
+/*
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
-char		**ft_split(char const *s, char c);
+char		**ft_split(char const *s, char c); */
 char		*ft_itoa(int n);
+/*
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
@@ -76,5 +78,5 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
+*/
 #endif

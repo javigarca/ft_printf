@@ -6,14 +6,16 @@
 #    By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 16:53:53 by javigarc          #+#    #+#              #
-#    Updated: 2022/02/10 16:57:31 by javigarc         ###   ########.fr        #
+#    Updated: 2022/02/11 13:07:44 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 		= libftprintf.a
 
 
-SRCS		= ft_printf.c
+SRCS		= ft_printf.c \
+			  ft_printf_utils1.c \
+			  ft_itoa.c
 
 #BONUSSRCS	= ft_lstnew.c \
 			  ft_lstadd_front.c \
