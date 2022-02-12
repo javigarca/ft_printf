@@ -20,14 +20,15 @@
 # include <stdio.h>
 
 int		ft_printf(const char *fstr, ...);
-void	ft_printf_c(char c);
-void	ft_printf_s(char *s);
-void	ft_printf_p(void *p);
-void	ft_printf_d(double f);
-void	ft_printf_i(int i);
-void	ft_printf_u(unsigned int u);
-void	ft_printf_x(int x);
-void	ft_printf_X(int X);
+int		ft_printf_c(char c);
+int		ft_printf_s(char *s);
+int		ft_printf_p(void *p);
+int		ft_printf_d(double f);
+int		ft_printf_i(int i);
+int		ft_printf_u(unsigned int u);
+int		ft_printf_x(int x);
+int		ft_printf_X(int X);
+int		ft_printf_null(void);
 //typedef struct s_list
 //{
 //	void			*content;

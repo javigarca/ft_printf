@@ -27,14 +27,14 @@ int ft_printf(const char *fstr, ...)
 			fstr++;
 			fchar = *fstr;
 			if (fchar == 'c')
-				ft_printf_c(va_arg(args, int));
+				total += ft_printf_c(va_arg(args, int));
 			if (fchar == 's')
-				ft_printf_s(va_arg(args, char *));
+				total += ft_printf_s(va_arg(args, char *));
 			if (fchar == 'p')
-				ft_printf_p(va_arg(args, void *));
-	/*		if (fchar == 'i')
-				ft_printf_i(va_arg(args, int));
-			if (fchar == 'd')
+				total += ft_printf_p(va_arg(args, void *));
+			if (fchar == 'i')
+				total += ft_printf_i(va_arg(args, int));
+	/*		if (fchar == 'd')
 				ft_printf_d(va_arg(args, double));
 			if (fchar == 'u')
 				ft_printf_u(va_arg(args, unsigned int));
@@ -43,44 +43,67 @@ int ft_printf(const char *fstr, ...)
 			if (fchar == 'X')
 				ft_printf_X(va_arg(args, int)); */
 			if (*fstr == '%')
-				ft_printf_c(fchar);
-//			fstr++;
+				total +=ft_printf_c(fchar);
 		}
 		else
 		{
 			fchar = *fstr;
-			ft_printf_c(fchar);
-			total++;
+			total +=ft_printf_c(fchar);
 		}
 		fstr++;
 	}
 	va_end(args);
-	return (0);
+	return (total);
 }
 
-void	ft_printf_c(char c)
+int	ft_printf_c(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_printf_s(char *s)
+int	ft_printf_s(char *s)
 {
+	int i;
+
+	i = 0;
 	if (s)
 	{
 		while (*s)
 		{
 			ft_printf_c(*s);
 			s++;
+			i++;
 		}
 	}
+	else
+		i = ft_printf_null();
+	return (i);
 }
 
-void	ft_printf_p(void *p)
+int	ft_printf_p(void *p)
 {
 	char	*addstr;
 	int		addint;
+	int		i;
 
+	i = 0;
 	addint = (int) &p;	
 	addstr = ft_itoa(addint);
-	ft_printf_s(addstr);
+	i = ft_printf_s(addstr);
+	return (i);
+}
+
+int	ft_printf_null(void)
+{
+	int i;
+
+	i = 0;
+	i += ft_printf_c('(');
+	i += ft_printf_c('n');
+	i += ft_printf_c('u');
+	i += ft_printf_c('l');
+	i += ft_printf_c('l');
+	i += ft_printf_c(')');
+	return (6);
 }

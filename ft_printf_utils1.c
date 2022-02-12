@@ -34,3 +34,16 @@ char	*ft_strdup(const char *src)
 	return (dst);
 }
 
+int	ft_printf_i(int i)
+{
+	char	*str;
+	int		z;
+
+	z  = 0;
+//	printf("\nint:%i", i);
+	str = ft_itoa(i);
+//	printf("\nstr:%s", str);
+	z = ft_printf_s(str);
+	return (z);
+}
+
