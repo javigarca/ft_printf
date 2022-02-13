@@ -18,6 +18,7 @@
 # include <string.h>
 # include <stdarg.h>
 # include <stdio.h>
+# include <limits.h>
 
 int		ft_printf(const char *fstr, ...);
 int		ft_printf_c(char c);
@@ -28,7 +29,6 @@ int		ft_printf_i(int i);
 int		ft_printf_u(unsigned int u);
 int		ft_printf_x(int x);
 int		ft_printf_X(int X);
-int		ft_printf_null(void);
 //typedef struct s_list
 //{
 //	void			*content;
@@ -63,6 +63,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(char const *s, char c); */
 char		*ft_itoa(int n);
+char		*ft_utoa(unsigned int n);
 /*
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);

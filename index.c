@@ -50,8 +50,8 @@ int main(void)
 //	ft_printf("\n********************************************\n");
 /*	totaloriginal = printf(" NULL %s NULL ", NULL);*/
 //	printf("\nMio: %i || Orginal: %i", totalmio, totaloriginal);
-/*
-	ft_printf("\n***********************\n	POINTER\n************************\n");
+
+/*	ft_printf("\n***********************\n	POINTER\n************************\n");
 
 	ft_printf(" %p ", -1);
 	ft_printf(" %p ", 1);
@@ -73,7 +73,7 @@ int main(void)
 	printf(" %p %p ", (void *)ULONG_MAX, (void *)-ULONG_MAX);
 	printf(" %p %p ", (void *)0, (void *)0);
 
-*/
+
 	ft_printf("\n***********************\n	INTEGER\n************************\n");
 	ft_printf(" %i ", 0);
 	ft_printf(" %i ", -1);
@@ -104,6 +104,15 @@ int main(void)
 	ft_printf(" %i ", ULONG_MAX);
 	ft_printf(" %i ", 9223372036854775807LL);
 	ft_printf(" %i %i %i %i %i %i %i", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	*/
+
+	int numero, numerop;
+
+	numero = ft_printf(" %u ", -1);
+	numerop = printf(" %u ", -1);
+
+	printf("\n mio: %i --- pri: %i \n", numero, numerop);
+	
 	system ("leaks a.out");
 	return (0);
 }

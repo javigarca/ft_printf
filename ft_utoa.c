@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	ft_nbrlen(int nbr)
+static int	ft_nbrlen(unsigned int nbr)
 {
 	int	z;
 
@@ -32,26 +32,7 @@ static int	ft_nbrlen(int nbr)
 	return (z);
 }
 
-static char	*ft_neg(int neg, int l)
-{
-	char	*aux;
-
-	neg *= -1;
-	aux = (char *) malloc(l + 1);
-	if (!aux)
-		return (NULL);
-	aux[l] = '\0';
-	while (l-- >= 1)
-	{
-		aux[l] = (neg% 10) + 48;
-		neg = (neg / 10);
-	}
-	aux[0] = '-';
-	free(aux);
-	return (aux);
-}
-
-static char	*ft_pos(int pos, int l)
+static char	*ft_pos(unsigned int pos, int l)
 {
 	char	*aux;
 
@@ -68,17 +49,12 @@ static char	*ft_pos(int pos, int l)
 	return (aux);
 }
 
-char	*ft_itoa(int n)
+char	*ft_utoa(unsigned int n)
 {
 	int		len;
-	char	*itoa;
+	char	*utoa;
 
 	len = ft_nbrlen(n);
-	if (n == -2147483648)
-		return ("-2147483648");
-	if (n < 0)
-		itoa = ft_neg(n, len);
-	else
-		itoa = ft_pos(n, len);
-	return (itoa);
+	utoa = ft_pos(n, len);
+	return (utoa);
 }

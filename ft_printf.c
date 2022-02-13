@@ -16,7 +16,7 @@ int ft_printf(const char *fstr, ...)
 {
 	va_list		args;
 	char		fchar;
-	int	total;
+	int			total;
 
 	total = 0;
 	va_start (args, fstr);
@@ -30,15 +30,13 @@ int ft_printf(const char *fstr, ...)
 				total += ft_printf_c(va_arg(args, int));
 			if (fchar == 's')
 				total += ft_printf_s(va_arg(args, char *));
-			if (fchar == 'p')
-				total += ft_printf_p(va_arg(args, void *));
-			if (fchar == 'i')
+//			if (fchar == 'p')
+//				total += ft_printf_p(va_arg(args, void *));
+			if ((fchar == 'i') || (fchar == 'd'))
 				total += ft_printf_i(va_arg(args, int));
-	/*		if (fchar == 'd')
-				ft_printf_d(va_arg(args, double));
 			if (fchar == 'u')
-				ft_printf_u(va_arg(args, unsigned int));
-			if (fchar == 'x')
+				total += ft_printf_u(va_arg(args,unsigned int));
+	/*		if (fchar == 'x')
 				ft_printf_x(va_arg(args, int));
 			if (fchar == 'X')
 				ft_printf_X(va_arg(args, int)); */
@@ -77,7 +75,7 @@ int	ft_printf_s(char *s)
 		}
 	}
 	else
-		i = ft_printf_null();
+		i = ft_printf_s("(null)");
 	return (i);
 }
 
@@ -92,18 +90,4 @@ int	ft_printf_p(void *p)
 	addstr = ft_itoa(addint);
 	i = ft_printf_s(addstr);
 	return (i);
-}
-
-int	ft_printf_null(void)
-{
-	int i;
-
-	i = 0;
-	i += ft_printf_c('(');
-	i += ft_printf_c('n');
-	i += ft_printf_c('u');
-	i += ft_printf_c('l');
-	i += ft_printf_c('l');
-	i += ft_printf_c(')');
-	return (6);
 }

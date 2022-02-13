@@ -15,7 +15,8 @@ NAME 		= libftprintf.a
 
 SRCS		= ft_printf.c \
 			  ft_printf_utils1.c \
-			  ft_itoa.c
+			  ft_itoa.c \
+			  ft_utoa.c
 
 #BONUSSRCS	= ft_lstnew.c \
 			  ft_lstadd_front.c \
