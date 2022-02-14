@@ -43,7 +43,7 @@ static char	*ft_neg(int neg, int l)
 	aux[l] = '\0';
 	while (l-- >= 1)
 	{
-		aux[l] = (neg% 10) + 48;
+		aux[l] = (neg % 10) + 48;
 		neg = (neg / 10);
 	}
 	aux[0] = '-';

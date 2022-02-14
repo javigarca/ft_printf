@@ -12,10 +12,9 @@
 
 #include "ft_printf.h"
 
-int ft_printf(const char *fstr, ...)
+int	ft_printf(const char *fstr, ...)
 {
 	va_list		args;
-	char		fchar;
 	int			total;
 
 	total = 0;
@@ -25,29 +24,10 @@ int ft_printf(const char *fstr, ...)
 		if (*fstr == '%')
 		{
 			fstr++;
-			fchar = *fstr;
-			if (fchar == 'c')
-				total += ft_printf_c(va_arg(args, int));
-			if (fchar == 's')
-				total += ft_printf_s(va_arg(args, char *));
-//			if (fchar == 'p')
-//				total += ft_printf_p(va_arg(args, void *));
-			if ((fchar == 'i') || (fchar == 'd'))
-				total += ft_printf_i(va_arg(args, int));
-			if (fchar == 'u')
-				total += ft_printf_u(va_arg(args,unsigned int));
-	/*		if (fchar == 'x')
-				ft_printf_x(va_arg(args, int));
-			if (fchar == 'X')
-				ft_printf_X(va_arg(args, int)); */
-			if (*fstr == '%')
-				total +=ft_printf_c(fchar);
+			total += ft_printf_format(*fstr, args);
 		}
 		else
-		{
-			fchar = *fstr;
-			total +=ft_printf_c(fchar);
-		}
+			total += ft_printf_c(*fstr);
 		fstr++;
 	}
 	va_end(args);
@@ -62,7 +42,7 @@ int	ft_printf_c(char c)
 
 int	ft_printf_s(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s)
@@ -79,15 +59,15 @@ int	ft_printf_s(char *s)
 	return (i);
 }
 
-int	ft_printf_p(void *p)
+int	ft_printf_p(unsigned long int p)
 {
-	char	*addstr;
-	int		addint;
-	int		i;
+	int		total;
 
-	i = 0;
-	addint = (int) &p;	
-	addstr = ft_itoa(addint);
-	i = ft_printf_s(addstr);
-	return (i);
+	total = 0;
+	total += ft_printf_s("0x");
+	if (p == 0)
+		total += ft_printf_c('0');
+	else
+		total += ft_tohex(p, 'x', 0);
+	return (total);
 }

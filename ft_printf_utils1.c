@@ -12,47 +12,71 @@
 
 #include "ft_printf.h"
 
-char	*ft_strdup(const char *src)
-{
-	int		i;
-	int		len;
-	char	*dst;
-
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dst)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
-
-int	ft_printf_i(int i)
+int	ft_printf_i(long int i)
 {
 	char	*str;
 	int		z;
 
-	z  = 0;
+	z = 0;
 	str = ft_itoa(i);
 	z = ft_printf_s(str);
 	return (z);
 }
 
-int	ft_printf_u(unsigned int i)
+int	ft_printf_u(unsigned long int i)
 {
 	char			*str;
 	int				z;
 
-	z  = 0;
+	z = 0;
 	str = ft_utoa(i);
 	z = ft_printf_s(str);
 	return (z);
 }
 
+size_t	ft_tohex(size_t nbr, char option, int total)
+{
+	char	*base;
+	char	*upbase;
+
+	base = "0123456789abcdef";
+	upbase = "0123456789ABCDEF";
+	if (nbr > 0)
+	{
+		if (option == 'x')
+		{
+			total += ft_tohex(nbr / 16, 'x', total);
+			total += ft_printf_c(base[nbr % 16]);
+		}
+		if (option == 'X')
+		{
+			total += ft_tohex(nbr / 16, 'X', total);
+			total += ft_printf_c(upbase[nbr % 16]);
+		}
+	}
+	return (total);
+}
+
+int	ft_printf_x(unsigned int nbrx)
+{
+	int	total;
+
+	total = 0;
+	if (nbrx == 0)
+		total += ft_printf_c('0');
+	else
+	total += ft_tohex(nbrx, 'x', total);
+	return (total);
+}
+
+int	ft_printf_upx(unsigned int nbrupx)
+{
+	int	total;
+
+	total = 0;
+	if (nbrupx == 0)
+		total += ft_printf_c('0');
+	else
+		total += ft_tohex(nbrupx, 'X', total);
+	return (total);
+}
