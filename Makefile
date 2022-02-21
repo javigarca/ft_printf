@@ -19,17 +19,15 @@ SRCS		= ft_printf.c \
 			  ft_utoa.c \
 			  ft_printf_utils2.c 
 
-#BONUSSRCS	= ft_lstnew.c \
-			  ft_lstadd_front.c \
-			  ft_lstsize.c \
-			  ft_lstlast.c \
-			  ft_lstadd_back.c \
-			  ft_lstdelone.c \
-			  ft_lstclear.c \
-			  ft_lstiter.c \
-			  ft_lstmap.c
-
+#BONUSSRCS	= ft_printf_bonus.c \
+			  ft_printf_bonus_utils1.c \
+			  ft_itoa_bonus.c \
+			  ft_utoa_bonus.c \
+			  ft_printf_bonus_utils2.c 
+			  
 HEADER		= ft_printf.h
+
+#BONUSHEADR  = ft_printf_bonus.h
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -54,7 +52,7 @@ $(NAME):	${OBJS} ${HEADER}
  
 all:		${NAME}
 
-#bonus:		${BONUSOBJS} ${HEADER}
+#bonus:		${BONUSOBJS} ${BONUSHEADER}
 #				${AR} ${NAME} ${BONUSOBJS}
 #				${LIB} ${NAME}
 
