@@ -6,13 +6,13 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:51:12 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/24 16:26:43 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/24 20:59:00 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_i_flag(long int i, char c)
+int	ft_printf_i_flag(int i, char c)
 {
 	char	*str;
 	int		z;
@@ -36,7 +36,7 @@ int	ft_printf_flags(const char *str, va_list args)
 	{
 		str++;
 		if ((*str == 'i') || (*str == 'd'))
-			return (ft_printf_i_flag(va_arg(args, long int), flag));
+			return (ft_printf_i_flag(va_arg(args, int), flag));
 		if (*str == 's')
 			return (ft_printf_s(va_arg(args, char *)));
 	}
@@ -63,9 +63,9 @@ int	ft_printf_format(char f, va_list args)
 	if (f == 'p')
 		return (ft_printf_p(va_arg(args, unsigned long int)));
 	if ((f == 'i') || (f == 'd'))
-		return (ft_printf_i(va_arg(args, long int)));
+		return (ft_printf_i(va_arg(args, int)));
 	if (f == 'u')
-		return (ft_printf_u(va_arg(args, unsigned long int)));
+		return (ft_printf_u(va_arg(args, unsigned int)));
 	if (f == 'x')
 		return (ft_printf_x(va_arg(args, unsigned int)));
 	if (f == 'X')

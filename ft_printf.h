@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:19:59 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/23 21:23:33 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/24 20:51:06 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ int		ft_printf(const char *fstr, ...);
 int		ft_printf_c(char c);
 int		ft_printf_s(char *s);
 int		ft_printf_p(unsigned long int p);
-int		ft_printf_d(double f);
-int		ft_printf_i(long int i);
-int		ft_printf_i_flag(long int i, char c);
-int		ft_printf_u(unsigned long int u);
+int		ft_printf_i(int i);
+int		ft_printf_i_flag(int i, char c);
+int		ft_printf_u(unsigned int u);
 int		ft_printf_x(unsigned int x);
 int		ft_printf_x_flag(unsigned int x);
 int		ft_printf_upx(unsigned int upx);

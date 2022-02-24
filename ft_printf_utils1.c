@@ -6,13 +6,13 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:51:12 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/24 16:26:34 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/24 20:52:15 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_i(long int i)
+int	ft_printf_i(int i)
 {
 	char	*str;
 	int		z;
@@ -23,7 +23,7 @@ int	ft_printf_i(long int i)
 	return (z);
 }
 
-int	ft_printf_u(unsigned long int i)
+int	ft_printf_u(unsigned int i)
 {
 	char			*str;
 	int				z;

@@ -6,7 +6,7 @@
 #    By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/10 16:53:53 by javigarc          #+#    #+#              #
-#    Updated: 2022/02/11 13:07:44 by javigarc         ###   ########.fr        #
+#    Updated: 2022/02/24 21:04:56 by javigarc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,10 @@ SRCS		= ft_printf.c \
 			  ft_utoa.c \
 			  ft_printf_utils2.c 
 
-#BONUSSRCS	= ft_printf_bonus.c \
-			  ft_printf_bonus_utils1.c \
-			  ft_itoa_bonus.c \
-			  ft_utoa_bonus.c \
-			  ft_printf_bonus_utils2.c 
-			  
 HEADER		= ft_printf.h
 
-#BONUSHEADR  = ft_printf_bonus.h
 
 OBJS		= ${SRCS:.c=.o}
-
-#BONUSOBJS	= ${BONUSSRCS:.c=.o}
 
 CC			= gcc
 
@@ -52,12 +43,10 @@ $(NAME):	${OBJS} ${HEADER}
  
 all:		${NAME}
 
-#bonus:		${BONUSOBJS} ${BONUSHEADER}
-#				${AR} ${NAME} ${BONUSOBJS}
-#				${LIB} ${NAME}
+bonus:		all
 
 clean:		
-			${RM} ${OBJS} ${BONUSOBJS}
+			${RM} ${OBJS} 
 
 fclean:		clean
 			${RM} ${NAME}
