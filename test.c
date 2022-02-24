@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 13:34:31 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/24 14:07:32 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:19:47 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ totaloriginal+=ft_printf("%+dmas\n", -18454);
 totaloriginal+=ft_printf("%+dmsa\n", 18);		
 	ft_printf("*********************\n");
 	ft_printf("mio:%i \noriginal:%i \n", totalmio, totaloriginal); */
-//	printf(" % 1s\n", "");
-//	printf("% 1s \n", "");
+	printf(" % 1s\n", "");
+	printf("% 1s \n", "");
 //	ft_printf("*********************\n");
 //	ft_printf(" % 1s\n", "");
 //	ft_printf("% 1s \n", "");

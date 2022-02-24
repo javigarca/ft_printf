@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:51:12 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/24 14:16:49 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:26:43 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_printf_flags(const char *str, va_list args)
 
 	total = 0;
 	flag = *str;
-	if ((flag == ' ') || (flag == '+'))
+	while ((flag == ' ') || (flag == '+'))
 	{
 		str++;
 		if ((*str == 'i') || (*str == 'd'))
@@ -40,7 +40,7 @@ int	ft_printf_flags(const char *str, va_list args)
 		if (*str == 's')
 			return (ft_printf_s(va_arg(args, char *)));
 	}
-	if (flag == '#')
+	while (flag == '#')
 	{
 		str++;
 		if (*str == 'x')
@@ -48,9 +48,7 @@ int	ft_printf_flags(const char *str, va_list args)
 		if (*str == 'X')
 			return (ft_printf_upx_flag(va_arg(args, unsigned int)));
 	}
-	else
-		return (ft_printf_format(*str, args));
-	return (total);
+	return (ft_printf_format(*str, args));
 }
 
 int	ft_printf_format(char f, va_list args)
