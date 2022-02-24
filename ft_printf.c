@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:53:52 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/11 13:24:49 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:16:45 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	ft_printf(const char *fstr, ...)
 		if (*fstr == '%')
 		{
 			fstr++;
-			total += ft_printf_format(*fstr, args);
+			total += ft_printf_flags(fstr, args);
+			while ((*fstr == ' ') || (*fstr == '#') || (*fstr == '+'))
+				fstr++;
 		}
 		else
 			total += ft_printf_c(*fstr);
@@ -42,21 +44,20 @@ int	ft_printf_c(char c)
 
 int	ft_printf_s(char *s)
 {
-	int	i;
+	int	total;
 
-	i = 0;
+	total = 0;
 	if (s)
 	{
 		while (*s)
 		{
-			ft_printf_c(*s);
+			total += ft_printf_c(*s);
 			s++;
-			i++;
 		}
 	}
 	else
-		i = ft_printf_s("(null)");
-	return (i);
+		total = ft_printf_s("(null)");
+	return (total);
 }
 
 int	ft_printf_p(unsigned long int p)
