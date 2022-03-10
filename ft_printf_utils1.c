@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:51:12 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/24 20:52:15 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/03/10 12:20:20 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,14 @@ int	ft_printf_i(int i)
 	int		z;
 
 	z = 0;
-	str = ft_itoa(i);
-	z = ft_printf_s(str);
+	if (i == -2147483648)
+		z = ft_printf_s("-2147483648");
+	else
+	{
+		str = ft_itoa(i);
+		z = ft_printf_s(str);
+		free(str);
+	}
 	return (z);
 }
 
@@ -31,6 +37,7 @@ int	ft_printf_u(unsigned int i)
 	z = 0;
 	str = ft_utoa(i);
 	z = ft_printf_s(str);
+	free(str);
 	return (z);
 }
 

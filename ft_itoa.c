@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:55:38 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/11 12:59:39 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/03/10 12:15:21 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static char	*ft_neg(int neg, int l)
 		neg = (neg / 10);
 	}
 	aux[0] = '-';
-	free(aux);
 	return (aux);
 }
 
@@ -64,7 +63,6 @@ static char	*ft_pos(int pos, int l)
 		aux[l] = (pos % 10) + 48;
 		pos = (pos / 10);
 	}
-	free(aux);
 	return (aux);
 }
 

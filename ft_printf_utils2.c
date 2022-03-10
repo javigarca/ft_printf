@@ -6,7 +6,7 @@
 /*   By: javigarc <javigarc@student.42urduli>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 12:51:12 by javigarc          #+#    #+#             */
-/*   Updated: 2022/02/24 20:59:00 by javigarc         ###   ########.fr       */
+/*   Updated: 2022/03/10 12:29:27 by javigarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ int	ft_printf_i_flag(int i, char c)
 	int		z;
 
 	z = 0;
-	str = ft_itoa(i);
-	if (*str != '-')
-		z += ft_printf_c(c);
-	z += ft_printf_s(str);
+	if (i == -2147483648)
+		z = ft_printf_s("-2147483648");
+	else
+	{
+		str = ft_itoa(i);
+		if (*str != '-')
+			z += ft_printf_c(c);
+		z += ft_printf_s(str);
+		free(str);
+	}
 	return (z);
 }
 
